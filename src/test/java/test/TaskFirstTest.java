@@ -62,40 +62,32 @@ public class TaskFirstTest {
                 .typeValue("12")
                 .clickGetValueButton();
 
-
     }
 
     @Test(description = "just a test")
-    public void secondSpinnerScenario(){
+    public void secondSpinnerScenario() {
         new JqueryUiSpinnerPage(this.firefoxDriver)
                 .openPage("https://jqueryui.com/spinner/")
                 .typeValue("12");
     }
 
     @Test(description = "Verify value in Autocomplete page")
-    public void scenarioWithAutocompletePageTest() {
+    public void scenarioWithAutocompletePageTest() throws InterruptedException {
         new JqueryUiMainPage(this.firefoxDriver)
                 .openPage("https://jqueryui.com/demos/")
                 .clickOnAutocompletePage()
-                .clickOnTagsField();
-
-
-
+                .clickOnTagsField("a")
+            .selectThirdBottomOption();
 
     }
 
-    @Test(description = "Test4")
-    public void scenarioWithAutocomplete(){
-        new JqueryUiAutocompletePage(this.firefoxDriver)
-                .openPage("https://jqueryui.com/autocomplete/")
-                .typeInTagsField();
-    }
+/*
 
-
-   /* @AfterMethod(alwaysRun = true)
+ @AfterMethod(alwaysRun = true)
     public void afterTestCompleted() {
         firefoxDriver.quit();
        firefoxDriver = null;
-    }*/
+    }
+*/
 
 }
