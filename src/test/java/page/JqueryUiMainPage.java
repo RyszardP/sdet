@@ -19,10 +19,10 @@ public class JqueryUiMainPage extends AbstractPage {
     @FindBy(xpath = LEFT_MENU_BAR + "/descendant-or-self::*[text()='" + INTERACTIONS + "']")
     private WebElement interactionsSection;
 
-    @FindBy(xpath = LEFT_MENU_BAR + "/descendant-or-self::*[text()='" + WIDGETS+ "']")
+    @FindBy(xpath = LEFT_MENU_BAR + "/descendant-or-self::*[text()='" + WIDGETS + "']")
     private WebElement widgetsSection;
 
-    @FindBy(xpath = LEFT_MENU_BAR + "/descendant-or-self::*[text()='" + EFFECTS+ "']")
+    @FindBy(xpath = LEFT_MENU_BAR + "/descendant-or-self::*[text()='" + EFFECTS + "']")
     private WebElement effectsSection;
 
     @FindBy(xpath = LEFT_MENU_BAR + "/descendant-or-self::*[text()='" + UTILITIES + "']")
@@ -44,33 +44,32 @@ public class JqueryUiMainPage extends AbstractPage {
         return this;
     }
 
+    public String checkSectionInLeftMenu(WebElement webElement) {
+        return webElement.getText();
+    }
+
     public void checkInteractionsInLeftMenu(String string) {
-        String isExist = interactionsSection.getText();
-        assertEquals(isExist, string);
+        assertEquals(checkSectionInLeftMenu(interactionsSection), string);
     }
 
     public void checkWidgetsInLeftMenu(String string) {
-        String isExist = widgetsSection.getText();
-        assertEquals(isExist, string);
+        assertEquals(checkSectionInLeftMenu(widgetsSection), string);
     }
 
     public void checkEffectsInLeftMenu(String string) {
-        String isExist = effectsSection.getText();
-        assertEquals(isExist, string);
+        assertEquals(checkSectionInLeftMenu(effectsSection), string);
     }
 
     public void checkUtilitiesInLeftMenu(String string) {
-        String isExist = utilitiesSection.getText();
-        assertEquals(isExist, string);
+        assertEquals(checkSectionInLeftMenu(utilitiesSection), string);
     }
 
-    public JqueryUiSpinnerPage clickOnSpinnerLink(){
+    public JqueryUiSpinnerPage clickOnSpinnerLink() {
         linkToSpinnerPage.click();
         return new JqueryUiSpinnerPage(driver);
     }
 
-
-    public JqueryUiAutocompletePage clickOnAutocompletePage(){
+    public JqueryUiAutocompletePage clickOnAutocompletePage() {
         linkToAutocomplete.click();
         return new JqueryUiAutocompletePage(driver);
     }
